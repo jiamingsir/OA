@@ -36,11 +36,11 @@ oasys是一个OA办公自动化系统，使用Maven进行项目管理，基于sp
 		
 ### 4. 演示地址
 
-#####     演示地址链接：http://oa.lxsir.cn:8088/index (维护中，暂时将关闭)
+#####     演示地址链接：http://oa.jiaming.cn:8088/index (维护中，暂时将关闭)
 #####     账号：test      密码：test
 #####     账号：soli      密码：123456
 
-ps:有问题可以反馈，QQ交流群：869544047
+ps:有问题可以反馈
 如果对项目感兴趣，请Watch、Star项目
 
 ### 5.友链
@@ -55,15 +55,6 @@ ps:有问题可以反馈，QQ交流群：869544047
     AgileBPM 的相关组件可以自由依附于该软件，并基于该 springboot 应用起步软件为基础不断 构建更多应用组件
 
 
-###  6.项目截图
 
-![演示1.gif](https://i.loli.net/2018/09/26/5bab4564b93af.gif)
-![演示4.gif](https://i.loli.net/2018/09/26/5bab4565b121e.gif)
-![演示3.gif](https://i.loli.net/2018/09/26/5bab4564b1469.gif)
 
-![主页面.png](https://i.loli.net/2018/09/26/5bab46225db21.png)
-![登陆页面.png](https://i.loli.net/2018/09/26/5bab46228ed27.png)
-![文件管理.png](https://i.loli.net/2018/09/26/5bab46224f849.png)
-![讨论区.png](https://i.loli.net/2018/09/26/5bab4622599ae.png)
-![.png](https://i.loli.net/2018/09/26/5bab46226122e.png)
-![通讯录.png](https://i.loli.net/2018/09/26/5bab462261e3d.png)
+
