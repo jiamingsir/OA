@@ -1,0 +1,85 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<definitions xmlns="http://www.omg.org/spec/BPMN/20100524/MODEL" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:activiti="http://activiti.org/bpmn" xmlns:bpmndi="http://www.omg.org/spec/BPMN/20100524/DI" xmlns:omgdc="http://www.omg.org/spec/DD/20100524/DC" xmlns:omgdi="http://www.omg.org/spec/DD/20100524/DI" xmlns:tns="http://www.activiti.org/test" typeLanguage="http://www.w3.org/2001/XMLSchema" expressionLanguage="http://www.w3.org/1999/XPath" targetNamespace="http://www.activiti.org/test" id="m1576028910777" name="">
+  <process id="转正流程" name="转正流程" isExecutable="true" isClosed="false" processType="None">
+    <startEvent id="_2" name="Start"></startEvent>
+    <userTask id="_3" name="人力资源部发起" activiti:assignee="#{sender}"></userTask>
+    <userTask id="_4" name="员工填写自评" activiti:assignee="#{emp}"></userTask>
+    <userTask id="_5" name="部门负责人评定及建议" activiti:assignee="#{depter}"></userTask>
+    <userTask id="_6" name="中心总经理确认" activiti:assignee="#{deptmanager}"></userTask>
+    <userTask id="_7" name="人力资源部确认" activiti:assignee="#{renlier}"></userTask>
+    <userTask id="_8" name="财务总监确认" activiti:assignee="#{caiwuer}"></userTask>
+    <userTask id="_9" name="副总裁确认" activiti:assignee="#{boss}"></userTask>
+    <endEvent id="_10" name="End"></endEvent>
+    <sequenceFlow id="_11" sourceRef="_2" targetRef="_3"></sequenceFlow>
+    <sequenceFlow id="_12" sourceRef="_3" targetRef="_4"></sequenceFlow>
+    <sequenceFlow id="_13" sourceRef="_4" targetRef="_5"></sequenceFlow>
+    <sequenceFlow id="_14" sourceRef="_5" targetRef="_6"></sequenceFlow>
+    <sequenceFlow id="_15" sourceRef="_6" targetRef="_7"></sequenceFlow>
+    <sequenceFlow id="_16" sourceRef="_7" targetRef="_8"></sequenceFlow>
+    <sequenceFlow id="_17" sourceRef="_8" targetRef="_9"></sequenceFlow>
+    <sequenceFlow id="_18" sourceRef="_9" targetRef="_10"></sequenceFlow>
+  </process>
+  <bpmndi:BPMNDiagram id="BPMNDiagram_转正流程">
+    <bpmndi:BPMNPlane bpmnElement="转正流程" id="BPMNPlane_转正流程">
+      <bpmndi:BPMNShape bpmnElement="_2" id="BPMNShape__2">
+        <omgdc:Bounds height="35.0" width="35.0" x="60.0" y="63.0"></omgdc:Bounds>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape bpmnElement="_3" id="BPMNShape__3">
+        <omgdc:Bounds height="55.0" width="105.0" x="130.0" y="53.0"></omgdc:Bounds>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape bpmnElement="_4" id="BPMNShape__4">
+        <omgdc:Bounds height="55.0" width="85.0" x="270.0" y="53.0"></omgdc:Bounds>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape bpmnElement="_5" id="BPMNShape__5">
+        <omgdc:Bounds height="55.0" width="135.0" x="396.0" y="53.0"></omgdc:Bounds>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape bpmnElement="_6" id="BPMNShape__6">
+        <omgdc:Bounds height="55.0" width="105.0" x="560.0" y="53.0"></omgdc:Bounds>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape bpmnElement="_7" id="BPMNShape__7">
+        <omgdc:Bounds height="55.0" width="105.0" x="690.0" y="53.0"></omgdc:Bounds>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape bpmnElement="_8" id="BPMNShape__8">
+        <omgdc:Bounds height="55.0" width="85.0" x="830.0" y="53.0"></omgdc:Bounds>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape bpmnElement="_9" id="BPMNShape__9">
+        <omgdc:Bounds height="55.0" width="85.0" x="940.0" y="53.0"></omgdc:Bounds>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape bpmnElement="_10" id="BPMNShape__10">
+        <omgdc:Bounds height="35.0" width="35.0" x="1060.0" y="63.0"></omgdc:Bounds>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNEdge bpmnElement="_11" id="BPMNEdge__11">
+        <omgdi:waypoint x="95.0" y="80.0"></omgdi:waypoint>
+        <omgdi:waypoint x="130.0" y="80.0"></omgdi:waypoint>
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge bpmnElement="_12" id="BPMNEdge__12">
+        <omgdi:waypoint x="235.0" y="80.0"></omgdi:waypoint>
+        <omgdi:waypoint x="270.0" y="80.0"></omgdi:waypoint>
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge bpmnElement="_13" id="BPMNEdge__13">
+        <omgdi:waypoint x="355.0" y="80.0"></omgdi:waypoint>
+        <omgdi:waypoint x="396.0" y="80.0"></omgdi:waypoint>
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge bpmnElement="_14" id="BPMNEdge__14">
+        <omgdi:waypoint x="531.0" y="80.0"></omgdi:waypoint>
+        <omgdi:waypoint x="560.0" y="80.0"></omgdi:waypoint>
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge bpmnElement="_15" id="BPMNEdge__15">
+        <omgdi:waypoint x="665.0" y="80.0"></omgdi:waypoint>
+        <omgdi:waypoint x="690.0" y="80.0"></omgdi:waypoint>
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge bpmnElement="_16" id="BPMNEdge__16">
+        <omgdi:waypoint x="795.0" y="80.0"></omgdi:waypoint>
+        <omgdi:waypoint x="830.0" y="80.0"></omgdi:waypoint>
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge bpmnElement="_17" id="BPMNEdge__17">
+        <omgdi:waypoint x="915.0" y="80.0"></omgdi:waypoint>
+        <omgdi:waypoint x="940.0" y="80.0"></omgdi:waypoint>
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge bpmnElement="_18" id="BPMNEdge__18">
+        <omgdi:waypoint x="1025.0" y="80.0"></omgdi:waypoint>
+        <omgdi:waypoint x="1060.0" y="80.0"></omgdi:waypoint>
+      </bpmndi:BPMNEdge>
+    </bpmndi:BPMNPlane>
+  </bpmndi:BPMNDiagram>
+</definitions>

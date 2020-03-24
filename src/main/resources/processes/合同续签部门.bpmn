@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<definitions xmlns="http://www.omg.org/spec/BPMN/20100524/MODEL" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:activiti="http://activiti.org/bpmn" xmlns:bpmndi="http://www.omg.org/spec/BPMN/20100524/DI" xmlns:omgdc="http://www.omg.org/spec/DD/20100524/DC" xmlns:omgdi="http://www.omg.org/spec/DD/20100524/DI" xmlns:tns="http://www.activiti.org/test" typeLanguage="http://www.w3.org/2001/XMLSchema" expressionLanguage="http://www.w3.org/1999/XPath" targetNamespace="http://www.activiti.org/test" id="m1575955646792" name="">
+  <process id="合同续签部门" name="合同续签部门" isExecutable="true" isClosed="false" processType="None">
+    <startEvent id="_2" name="Start"></startEvent>
+    <userTask id="_3" name="人力资源部起草" activiti:assignee="#{sender}"></userTask>
+    <userTask id="_4" name="部门负责人确认" activiti:assignee="#{depter}"></userTask>
+    <userTask id="_5" name="中心总经理确认" activiti:assignee="#{deptmanager}"></userTask>
+    <endEvent id="_7" name="End"></endEvent>
+    <sequenceFlow id="_8" sourceRef="_2" targetRef="_3"></sequenceFlow>
+    <sequenceFlow id="_9" sourceRef="_3" targetRef="_4"></sequenceFlow>
+    <sequenceFlow id="_10" name="续约" sourceRef="_4" targetRef="_5">
+      <conditionExpression xsi:type="tFormalExpression"><![CDATA[${flag==0}]]></conditionExpression>
+    </sequenceFlow>
+    <sequenceFlow id="_11" sourceRef="_5" targetRef="_7"></sequenceFlow>
+    <endEvent id="_12" name="End"></endEvent>
+    <sequenceFlow id="_13" name="不续约" sourceRef="_4" targetRef="_12">
+      <conditionExpression xsi:type="tFormalExpression"><![CDATA[${flag==1}]]></conditionExpression>
+    </sequenceFlow>
+  </process>
+  <bpmndi:BPMNDiagram id="BPMNDiagram_合同续签部门">
+    <bpmndi:BPMNPlane bpmnElement="合同续签部门" id="BPMNPlane_合同续签部门">
+      <bpmndi:BPMNShape bpmnElement="_2" id="BPMNShape__2">
+        <omgdc:Bounds height="35.0" width="35.0" x="80.0" y="70.0"></omgdc:Bounds>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape bpmnElement="_3" id="BPMNShape__3">
+        <omgdc:Bounds height="55.0" width="85.0" x="190.0" y="60.0"></omgdc:Bounds>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape bpmnElement="_4" id="BPMNShape__4">
+        <omgdc:Bounds height="55.0" width="105.0" x="380.0" y="60.0"></omgdc:Bounds>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape bpmnElement="_5" id="BPMNShape__5">
+        <omgdc:Bounds height="55.0" width="105.0" x="570.0" y="60.0"></omgdc:Bounds>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape bpmnElement="_7" id="BPMNShape__7">
+        <omgdc:Bounds height="35.0" width="35.0" x="770.0" y="70.0"></omgdc:Bounds>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape bpmnElement="_12" id="BPMNShape__12">
+        <omgdc:Bounds height="35.0" width="35.0" x="415.0" y="170.0"></omgdc:Bounds>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNEdge bpmnElement="_8" id="BPMNEdge__8">
+        <omgdi:waypoint x="115.0" y="87.0"></omgdi:waypoint>
+        <omgdi:waypoint x="190.0" y="87.0"></omgdi:waypoint>
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge bpmnElement="_9" id="BPMNEdge__9">
+        <omgdi:waypoint x="275.0" y="87.0"></omgdi:waypoint>
+        <omgdi:waypoint x="380.0" y="87.0"></omgdi:waypoint>
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge bpmnElement="_10" id="BPMNEdge__10">
+        <omgdi:waypoint x="485.0" y="87.0"></omgdi:waypoint>
+        <omgdi:waypoint x="570.0" y="87.0"></omgdi:waypoint>
+        <bpmndi:BPMNLabel>
+          <omgdc:Bounds height="14.0" width="0.0" x="-20.0" y="-85.0"></omgdc:Bounds>
+        </bpmndi:BPMNLabel>
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge bpmnElement="_11" id="BPMNEdge__11">
+        <omgdi:waypoint x="675.0" y="87.0"></omgdi:waypoint>
+        <omgdi:waypoint x="770.0" y="87.0"></omgdi:waypoint>
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge bpmnElement="_13" id="BPMNEdge__13">
+        <omgdi:waypoint x="432.0" y="115.0"></omgdi:waypoint>
+        <omgdi:waypoint x="432.0" y="170.0"></omgdi:waypoint>
+        <bpmndi:BPMNLabel>
+          <omgdc:Bounds height="14.0" width="0.0" x="-30.0" y="-85.0"></omgdc:Bounds>
+        </bpmndi:BPMNLabel>
+      </bpmndi:BPMNEdge>
+    </bpmndi:BPMNPlane>
+  </bpmndi:BPMNDiagram>
+</definitions>

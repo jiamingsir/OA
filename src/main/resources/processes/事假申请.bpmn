@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<definitions xmlns="http://www.omg.org/spec/BPMN/20100524/MODEL" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:activiti="http://activiti.org/bpmn" xmlns:bpmndi="http://www.omg.org/spec/BPMN/20100524/DI" xmlns:omgdc="http://www.omg.org/spec/DD/20100524/DC" xmlns:omgdi="http://www.omg.org/spec/DD/20100524/DI" xmlns:tns="http://www.activiti.org/test" typeLanguage="http://www.w3.org/2001/XMLSchema" expressionLanguage="http://www.w3.org/1999/XPath" targetNamespace="http://www.activiti.org/test" id="m1574843214844" name="">
+  <process id="事假申请" name="事假申请" isExecutable="true" isClosed="false" processType="None">
+    <startEvent id="_2" name="Start"></startEvent>
+    <userTask id="leavetask1" name="事假申请" activiti:assignee="#{sender}"></userTask>
+    <userTask id="leavetask2" name="部门负责人确认" activiti:assignee="#{depter}"></userTask>
+    <userTask id="leavetask3" name="中心总经理" activiti:assignee="#{deptmanager}"></userTask>
+    <sequenceFlow id="_6" sourceRef="_2" targetRef="leavetask1"></sequenceFlow>
+    <sequenceFlow id="_7" sourceRef="leavetask1" targetRef="leavetask2"></sequenceFlow>
+    <endEvent id="_11" name="End"></endEvent>
+    <sequenceFlow id="_12" sourceRef="leavetask3" targetRef="_11"></sequenceFlow>
+    <sequenceFlow id="_3" name="小于等于1天" sourceRef="leavetask2" targetRef="_11">
+      <conditionExpression xsi:type="tFormalExpression"><![CDATA[${day==0}]]></conditionExpression>
+    </sequenceFlow>
+    <sequenceFlow id="_4" name="大于1天" sourceRef="leavetask2" targetRef="leavetask3">
+      <conditionExpression xsi:type="tFormalExpression"><![CDATA[${day==1}]]></conditionExpression>
+    </sequenceFlow>
+  </process>
+  <bpmndi:BPMNDiagram id="BPMNDiagram_事假申请">
+    <bpmndi:BPMNPlane bpmnElement="事假申请" id="BPMNPlane_事假申请">
+      <bpmndi:BPMNShape bpmnElement="_2" id="BPMNShape__2">
+        <omgdc:Bounds height="35.0" width="35.0" x="70.0" y="101.0"></omgdc:Bounds>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape bpmnElement="leavetask1" id="BPMNShape_leavetask1">
+        <omgdc:Bounds height="55.0" width="95.0" x="160.0" y="94.0"></omgdc:Bounds>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape bpmnElement="leavetask2" id="BPMNShape_leavetask2">
+        <omgdc:Bounds height="55.0" width="95.0" x="310.0" y="94.0"></omgdc:Bounds>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape bpmnElement="leavetask3" id="BPMNShape_leavetask3">
+        <omgdc:Bounds height="55.0" width="85.0" x="500.0" y="30.0"></omgdc:Bounds>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape bpmnElement="_11" id="BPMNShape__11">
+        <omgdc:Bounds height="35.0" width="35.0" x="690.0" y="104.0"></omgdc:Bounds>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNEdge bpmnElement="_6" id="BPMNEdge__6">
+        <omgdi:waypoint x="105.0" y="118.0"></omgdi:waypoint>
+        <omgdi:waypoint x="160.0" y="121.0"></omgdi:waypoint>
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge bpmnElement="_7" id="BPMNEdge__7">
+        <omgdi:waypoint x="255.0" y="121.0"></omgdi:waypoint>
+        <omgdi:waypoint x="310.0" y="121.0"></omgdi:waypoint>
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge bpmnElement="_12" id="BPMNEdge__12">
+        <omgdi:waypoint x="585.0" y="57.0"></omgdi:waypoint>
+        <omgdi:waypoint x="710.0" y="70.0"></omgdi:waypoint>
+        <omgdi:waypoint x="707.0" y="104.0"></omgdi:waypoint>
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge bpmnElement="_3" id="BPMNEdge__3">
+        <omgdi:waypoint x="405.0" y="121.0"></omgdi:waypoint>
+        <omgdi:waypoint x="690.0" y="121.0"></omgdi:waypoint>
+        <bpmndi:BPMNLabel>
+          <omgdc:Bounds height="14.0" width="0.0" x="0.0" y="0.0"></omgdc:Bounds>
+        </bpmndi:BPMNLabel>
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge bpmnElement="_4" id="BPMNEdge__4">
+        <omgdi:waypoint x="357.0" y="94.0"></omgdi:waypoint>
+        <omgdi:waypoint x="360.0" y="65.0"></omgdi:waypoint>
+        <omgdi:waypoint x="500.0" y="57.0"></omgdi:waypoint>
+        <bpmndi:BPMNLabel>
+          <omgdc:Bounds height="14.0" width="0.0" x="0.0" y="0.0"></omgdc:Bounds>
+        </bpmndi:BPMNLabel>
+      </bpmndi:BPMNEdge>
+    </bpmndi:BPMNPlane>
+  </bpmndi:BPMNDiagram>
+</definitions>

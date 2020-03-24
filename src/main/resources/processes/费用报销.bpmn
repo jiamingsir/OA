@@ -1,0 +1,102 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<definitions xmlns="http://www.omg.org/spec/BPMN/20100524/MODEL" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:activiti="http://activiti.org/bpmn" xmlns:bpmndi="http://www.omg.org/spec/BPMN/20100524/DI" xmlns:omgdc="http://www.omg.org/spec/DD/20100524/DC" xmlns:omgdi="http://www.omg.org/spec/DD/20100524/DI" xmlns:tns="http://www.activiti.org/test" typeLanguage="http://www.w3.org/2001/XMLSchema" expressionLanguage="http://www.w3.org/1999/XPath" targetNamespace="http://www.activiti.org/test" id="m1575351435299" name="">
+  <process id="费用报销" name="费用报销" isExecutable="true" isClosed="false" processType="None">
+    <startEvent id="Start" name="Start"></startEvent>
+    <userTask id="报销发起" name="报销发起" activiti:assignee="#{sender}"></userTask>
+    <userTask id="财务部审核" name="财务部审核" activiti:assignee="#{caiwubuer}"></userTask>
+    <userTask id="部门负责人审核" name="部门负责人审核" activiti:assignee="#{depter}"></userTask>
+    <userTask id="中心总经理审核" name="中心总经理审核" activiti:assignee="#{deptmanager}"></userTask>
+    <userTask id="副总裁审核" name="副总裁审核" activiti:assignee="#{boss}"></userTask>
+    <userTask id="总裁审核" name="总裁审核" activiti:assignee="#{bigboss}"></userTask>
+    <sequenceFlow id="_11" sourceRef="Start" targetRef="报销发起"></sequenceFlow>
+    <sequenceFlow id="_12" sourceRef="报销发起" targetRef="财务部审核"></sequenceFlow>
+    <sequenceFlow id="_13" sourceRef="财务部审核" targetRef="部门负责人审核"></sequenceFlow>
+    <sequenceFlow id="_14" sourceRef="部门负责人审核" targetRef="中心总经理审核"></sequenceFlow>
+    <sequenceFlow id="_15" sourceRef="中心总经理审核" targetRef="副总裁审核"></sequenceFlow>
+    <sequenceFlow id="_17" name="金额大" sourceRef="副总裁审核" targetRef="总裁审核">
+      <conditionExpression xsi:type="tFormalExpression"><![CDATA[${feeflag==1}]]></conditionExpression>
+    </sequenceFlow>
+    <userTask id="出纳付款" name="出纳付款" activiti:assignee="#{outer}"></userTask>
+    <sequenceFlow id="_20" name="金额小" sourceRef="副总裁审核" targetRef="出纳付款">
+      <conditionExpression xsi:type="tFormalExpression"><![CDATA[${feeflag==0}]]></conditionExpression>
+    </sequenceFlow>
+    <sequenceFlow id="_21" sourceRef="总裁审核" targetRef="出纳付款"></sequenceFlow>
+    <endEvent id="_22" name="EndEvent"></endEvent>
+    <sequenceFlow id="_23" sourceRef="出纳付款" targetRef="_22"></sequenceFlow>
+  </process>
+  <bpmndi:BPMNDiagram id="BPMNDiagram_费用报销">
+    <bpmndi:BPMNPlane bpmnElement="费用报销" id="BPMNPlane_费用报销">
+      <bpmndi:BPMNShape bpmnElement="Start" id="BPMNShape_Start">
+        <omgdc:Bounds height="35.0" width="35.0" x="53.0" y="150.0"></omgdc:Bounds>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape bpmnElement="报销发起" id="BPMNShape_报销发起">
+        <omgdc:Bounds height="55.0" width="85.0" x="120.0" y="140.0"></omgdc:Bounds>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape bpmnElement="财务部审核" id="BPMNShape_财务部审核">
+        <omgdc:Bounds height="55.0" width="85.0" x="250.0" y="140.0"></omgdc:Bounds>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape bpmnElement="部门负责人审核" id="BPMNShape_部门负责人审核">
+        <omgdc:Bounds height="55.0" width="105.0" x="380.0" y="140.0"></omgdc:Bounds>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape bpmnElement="中心总经理审核" id="BPMNShape_中心总经理审核">
+        <omgdc:Bounds height="55.0" width="105.0" x="520.0" y="140.0"></omgdc:Bounds>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape bpmnElement="副总裁审核" id="BPMNShape_副总裁审核">
+        <omgdc:Bounds height="55.0" width="85.0" x="660.0" y="140.0"></omgdc:Bounds>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape bpmnElement="总裁审核" id="BPMNShape_总裁审核">
+        <omgdc:Bounds height="55.0" width="85.0" x="780.0" y="70.0"></omgdc:Bounds>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape bpmnElement="出纳付款" id="BPMNShape_出纳付款">
+        <omgdc:Bounds height="55.0" width="85.0" x="940.0" y="140.0"></omgdc:Bounds>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape bpmnElement="_22" id="BPMNShape__22">
+        <omgdc:Bounds height="35.0" width="35.0" x="1080.0" y="150.0"></omgdc:Bounds>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNEdge bpmnElement="_11" id="BPMNEdge__11">
+        <omgdi:waypoint x="88.0" y="167.0"></omgdi:waypoint>
+        <omgdi:waypoint x="120.0" y="167.0"></omgdi:waypoint>
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge bpmnElement="_12" id="BPMNEdge__12">
+        <omgdi:waypoint x="205.0" y="167.0"></omgdi:waypoint>
+        <omgdi:waypoint x="250.0" y="167.0"></omgdi:waypoint>
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge bpmnElement="_13" id="BPMNEdge__13">
+        <omgdi:waypoint x="335.0" y="167.0"></omgdi:waypoint>
+        <omgdi:waypoint x="380.0" y="167.0"></omgdi:waypoint>
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge bpmnElement="_14" id="BPMNEdge__14">
+        <omgdi:waypoint x="485.0" y="167.0"></omgdi:waypoint>
+        <omgdi:waypoint x="520.0" y="167.0"></omgdi:waypoint>
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge bpmnElement="_15" id="BPMNEdge__15">
+        <omgdi:waypoint x="625.0" y="167.0"></omgdi:waypoint>
+        <omgdi:waypoint x="660.0" y="167.0"></omgdi:waypoint>
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge bpmnElement="_17" id="BPMNEdge__17">
+        <omgdi:waypoint x="702.0" y="140.0"></omgdi:waypoint>
+        <omgdi:waypoint x="705.0" y="97.0"></omgdi:waypoint>
+        <omgdi:waypoint x="780.0" y="97.0"></omgdi:waypoint>
+        <bpmndi:BPMNLabel>
+          <omgdc:Bounds height="14.0" width="0.0" x="-21.0" y="-25.0"></omgdc:Bounds>
+        </bpmndi:BPMNLabel>
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge bpmnElement="_20" id="BPMNEdge__20">
+        <omgdi:waypoint x="745.0" y="167.0"></omgdi:waypoint>
+        <omgdi:waypoint x="940.0" y="167.0"></omgdi:waypoint>
+        <bpmndi:BPMNLabel>
+          <omgdc:Bounds height="14.0" width="0.0" x="23.0" y="-28.0"></omgdc:Bounds>
+        </bpmndi:BPMNLabel>
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge bpmnElement="_21" id="BPMNEdge__21">
+        <omgdi:waypoint x="865.0" y="97.0"></omgdi:waypoint>
+        <omgdi:waypoint x="982.0" y="97.0"></omgdi:waypoint>
+        <omgdi:waypoint x="982.0" y="140.0"></omgdi:waypoint>
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge bpmnElement="_23" id="BPMNEdge__23">
+        <omgdi:waypoint x="1025.0" y="167.0"></omgdi:waypoint>
+        <omgdi:waypoint x="1080.0" y="167.0"></omgdi:waypoint>
+      </bpmndi:BPMNEdge>
+    </bpmndi:BPMNPlane>
+  </bpmndi:BPMNDiagram>
+</definitions>

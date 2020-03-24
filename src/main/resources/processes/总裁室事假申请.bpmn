@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<definitions xmlns="http://www.omg.org/spec/BPMN/20100524/MODEL" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:activiti="http://activiti.org/bpmn" xmlns:bpmndi="http://www.omg.org/spec/BPMN/20100524/DI" xmlns:omgdc="http://www.omg.org/spec/DD/20100524/DC" xmlns:omgdi="http://www.omg.org/spec/DD/20100524/DI" xmlns:tns="http://www.activiti.org/test" typeLanguage="http://www.w3.org/2001/XMLSchema" expressionLanguage="http://www.w3.org/1999/XPath" targetNamespace="http://www.activiti.org/test" id="m1579574775692" name="">
+  <process id="总裁室事假申请" name="总裁室事假申请" isExecutable="true" isClosed="false" processType="None">
+    <startEvent id="_2" name="Start"></startEvent>
+    <userTask id="_3" name="本人发起" activiti:assignee="#{sender}"></userTask>
+    <userTask id="_4" name="总裁审核" activiti:assignee="#{boss}"></userTask>
+    <userTask id="_5" name="董事长审核" activiti:assignee="#{bigboss}"></userTask>
+    <endEvent id="_6" name="End"></endEvent>
+    <sequenceFlow id="_7" sourceRef="_2" targetRef="_3"></sequenceFlow>
+    <sequenceFlow id="_8" sourceRef="_3" targetRef="_4"></sequenceFlow>
+    <sequenceFlow id="_9" sourceRef="_4" targetRef="_5"></sequenceFlow>
+    <sequenceFlow id="_10" sourceRef="_5" targetRef="_6"></sequenceFlow>
+  </process>
+  <bpmndi:BPMNDiagram id="BPMNDiagram_总裁室事假申请">
+    <bpmndi:BPMNPlane bpmnElement="总裁室事假申请" id="BPMNPlane_总裁室事假申请">
+      <bpmndi:BPMNShape bpmnElement="_2" id="BPMNShape__2">
+        <omgdc:Bounds height="35.0" width="35.0" x="180.0" y="115.0"></omgdc:Bounds>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape bpmnElement="_3" id="BPMNShape__3">
+        <omgdc:Bounds height="55.0" width="85.0" x="285.0" y="105.0"></omgdc:Bounds>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape bpmnElement="_4" id="BPMNShape__4">
+        <omgdc:Bounds height="55.0" width="85.0" x="465.0" y="105.0"></omgdc:Bounds>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape bpmnElement="_5" id="BPMNShape__5">
+        <omgdc:Bounds height="55.0" width="85.0" x="640.0" y="105.0"></omgdc:Bounds>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape bpmnElement="_6" id="BPMNShape__6">
+        <omgdc:Bounds height="35.0" width="35.0" x="820.0" y="115.0"></omgdc:Bounds>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNEdge bpmnElement="_7" id="BPMNEdge__7">
+        <omgdi:waypoint x="215.0" y="132.0"></omgdi:waypoint>
+        <omgdi:waypoint x="285.0" y="132.0"></omgdi:waypoint>
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge bpmnElement="_8" id="BPMNEdge__8">
+        <omgdi:waypoint x="370.0" y="132.0"></omgdi:waypoint>
+        <omgdi:waypoint x="465.0" y="132.0"></omgdi:waypoint>
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge bpmnElement="_9" id="BPMNEdge__9">
+        <omgdi:waypoint x="550.0" y="132.0"></omgdi:waypoint>
+        <omgdi:waypoint x="640.0" y="132.0"></omgdi:waypoint>
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge bpmnElement="_10" id="BPMNEdge__10">
+        <omgdi:waypoint x="725.0" y="132.0"></omgdi:waypoint>
+        <omgdi:waypoint x="820.0" y="132.0"></omgdi:waypoint>
+      </bpmndi:BPMNEdge>
+    </bpmndi:BPMNPlane>
+  </bpmndi:BPMNDiagram>
+</definitions>

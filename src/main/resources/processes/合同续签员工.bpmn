@@ -1,0 +1,86 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<definitions xmlns="http://www.omg.org/spec/BPMN/20100524/MODEL" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:activiti="http://activiti.org/bpmn" xmlns:bpmndi="http://www.omg.org/spec/BPMN/20100524/DI" xmlns:omgdc="http://www.omg.org/spec/DD/20100524/DC" xmlns:omgdi="http://www.omg.org/spec/DD/20100524/DI" xmlns:tns="http://www.activiti.org/test" typeLanguage="http://www.w3.org/2001/XMLSchema" expressionLanguage="http://www.w3.org/1999/XPath" targetNamespace="http://www.activiti.org/test" id="m1575950223638" name="">
+  <process id="合同续签员工" name="合同续签员工" isExecutable="true" isClosed="false" processType="None">
+    <startEvent id="_2" name="Start"></startEvent>
+    <userTask id="_4" name="人力资源部起草" activiti:assignee="#{sender}"></userTask>
+    <userTask id="_5" name="员工确认" activiti:assignee="#{emp}"></userTask>
+    <userTask id="_6" name="人力资源部确认" activiti:assignee="#{sender}"></userTask>
+    <endEvent id="_7" name="End"></endEvent>
+    <userTask id="_8" name="财务总监确认" activiti:assignee="#{caiwuer}"></userTask>
+    <userTask id="_9" name="副总裁确认" activiti:assignee="#{boss}"></userTask>
+    <endEvent id="_10" name="End"></endEvent>
+    <sequenceFlow id="_11" name="不续约" sourceRef="_5" targetRef="_10">
+      <conditionExpression xsi:type="tFormalExpression"><![CDATA[${flag == 1}]]></conditionExpression>
+    </sequenceFlow>
+    <sequenceFlow id="_12" name="续约" sourceRef="_5" targetRef="_6">
+      <conditionExpression xsi:type="tFormalExpression"><![CDATA[${flag == 0}]]></conditionExpression>
+    </sequenceFlow>
+    <sequenceFlow id="_13" sourceRef="_6" targetRef="_8"></sequenceFlow>
+    <sequenceFlow id="_14" sourceRef="_8" targetRef="_9"></sequenceFlow>
+    <sequenceFlow id="_15" sourceRef="_9" targetRef="_7"></sequenceFlow>
+    <sequenceFlow id="_16" sourceRef="_4" targetRef="_5"></sequenceFlow>
+    <sequenceFlow id="_17" sourceRef="_2" targetRef="_4"></sequenceFlow>
+  </process>
+  <bpmndi:BPMNDiagram id="BPMNDiagram_合同续签员工">
+    <bpmndi:BPMNPlane bpmnElement="合同续签员工" id="BPMNPlane_合同续签员工">
+      <bpmndi:BPMNShape bpmnElement="_2" id="BPMNShape__2">
+        <omgdc:Bounds height="35.0" width="35.0" x="55.0" y="110.0"></omgdc:Bounds>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape bpmnElement="_4" id="BPMNShape__4">
+        <omgdc:Bounds height="65.0" width="105.0" x="160.0" y="95.0"></omgdc:Bounds>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape bpmnElement="_5" id="BPMNShape__5">
+        <omgdc:Bounds height="55.0" width="85.0" x="330.0" y="100.0"></omgdc:Bounds>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape bpmnElement="_6" id="BPMNShape__6">
+        <omgdc:Bounds height="60.0" width="105.0" x="500.0" y="98.0"></omgdc:Bounds>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape bpmnElement="_7" id="BPMNShape__7">
+        <omgdc:Bounds height="35.0" width="35.0" x="1035.0" y="110.0"></omgdc:Bounds>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape bpmnElement="_8" id="BPMNShape__8">
+        <omgdc:Bounds height="55.0" width="85.0" x="685.0" y="100.0"></omgdc:Bounds>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape bpmnElement="_9" id="BPMNShape__9">
+        <omgdc:Bounds height="55.0" width="85.0" x="865.0" y="100.0"></omgdc:Bounds>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape bpmnElement="_10" id="BPMNShape__10">
+        <omgdc:Bounds height="35.0" width="35.0" x="355.0" y="240.0"></omgdc:Bounds>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNEdge bpmnElement="_11" id="BPMNEdge__11">
+        <omgdi:waypoint x="372.0" y="155.0"></omgdi:waypoint>
+        <omgdi:waypoint x="372.0" y="240.0"></omgdi:waypoint>
+        <bpmndi:BPMNLabel>
+          <omgdc:Bounds height="14.0" width="0.0" x="5.0" y="5.0"></omgdc:Bounds>
+        </bpmndi:BPMNLabel>
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge bpmnElement="_12" id="BPMNEdge__12">
+        <omgdi:waypoint x="415.0" y="127.0"></omgdi:waypoint>
+        <omgdi:waypoint x="500.0" y="128.0"></omgdi:waypoint>
+        <bpmndi:BPMNLabel>
+          <omgdc:Bounds height="14.0" width="0.0" x="5.0" y="5.0"></omgdc:Bounds>
+        </bpmndi:BPMNLabel>
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge bpmnElement="_13" id="BPMNEdge__13">
+        <omgdi:waypoint x="605.0" y="128.0"></omgdi:waypoint>
+        <omgdi:waypoint x="685.0" y="127.0"></omgdi:waypoint>
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge bpmnElement="_14" id="BPMNEdge__14">
+        <omgdi:waypoint x="770.0" y="127.0"></omgdi:waypoint>
+        <omgdi:waypoint x="865.0" y="127.0"></omgdi:waypoint>
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge bpmnElement="_15" id="BPMNEdge__15">
+        <omgdi:waypoint x="950.0" y="127.0"></omgdi:waypoint>
+        <omgdi:waypoint x="1035.0" y="127.0"></omgdi:waypoint>
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge bpmnElement="_16" id="BPMNEdge__16">
+        <omgdi:waypoint x="265.0" y="127.0"></omgdi:waypoint>
+        <omgdi:waypoint x="330.0" y="127.0"></omgdi:waypoint>
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge bpmnElement="_17" id="BPMNEdge__17">
+        <omgdi:waypoint x="90.0" y="127.0"></omgdi:waypoint>
+        <omgdi:waypoint x="160.0" y="127.0"></omgdi:waypoint>
+      </bpmndi:BPMNEdge>
+    </bpmndi:BPMNPlane>
+  </bpmndi:BPMNDiagram>
+</definitions>
